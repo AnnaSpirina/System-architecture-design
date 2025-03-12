@@ -118,19 +118,80 @@
 Статус код: 404 Not Found
 ![image](https://github.com/user-attachments/assets/569ddae0-78c7-4e2c-964a-0f90ac011544)
 
-### 2.2. Отмена мероприятия
+### 2.3. Отмена мероприятия
 `Endpoint: DELETE /events/{id}`
 
 **Тест 1:** Успешная отмена мероприятия
 
-Ожидаемый результат:
+**Ожидаемый результат:**
 
 Статус код: 204 No Content
 ![image](https://github.com/user-attachments/assets/015c6d35-a8fa-4183-92de-c86d5f19a90c)
 
 **Тест 2:** Мероприятие не найдено
 
-Ожидаемый результат:
+**Ожидаемый результат:**
 
 Статус код: 404 Not Found
 ![image](https://github.com/user-attachments/assets/e323568b-abce-4588-bb8e-e3f02fbd67c0)
+
+### 2.4. Получение списка всех мероприятий
+**Тест 1:** Список мероприятий пуст
+
+**Ожидаемый результат:**
+
+Статус код: 200 OK
+
+Тело ответа: Пустой массив [] (если мероприятий нет).
+![image](https://github.com/user-attachments/assets/33d3a7e7-f0c6-44da-b4da-8bda320d5a36)
+
+**Тест 2:** Успешное получение списка мероприятий
+
+**Ожидаемый результат:**
+
+Статус код: 200 OK
+
+Тело ответа: Массив мероприятий в формате JSON.
+![image](https://github.com/user-attachments/assets/2ad1d16c-9708-4736-9ac2-2969a0f6bf28)
+
+## 3. Работа с пользователями
+### 3.1. Регистрация студента
+`Endpoint: POST /students/register`
+
+**Тест 1:** Успешная регистрация студента
+
+**Ожидаемый результат:**
+
+Статус код: 201 Created
+
+Тело ответа: JSON с данными зарегистрированного студента.
+![image](https://github.com/user-attachments/assets/7d67bf22-d28d-42e9-9f77-c4db3c2bf948)
+
+**Тест 2:** Пользователь с такой почтой уже существует
+
+**Ожидаемый результат:**
+
+Статус код: 409 Conflict
+
+Тело ответа: Сообщение об ошибке.
+![image](https://github.com/user-attachments/assets/2ff4e6f8-ffe9-474f-83ec-9e485c79b9c7)
+
+### 3.2. Подписка на студенческую организацию
+`Endpoint: POST /students/{studentId}/subscribe/{organizationId}`
+
+**Тест 1:** Успешная подписка
+
+**Ожидаемый результат:**
+
+Статус код: 200 OK
+
+Тело ответа: Сообщение об успешной подписке.
+![image](https://github.com/user-attachments/assets/b5e4f9cf-495f-4ddd-b96d-7774281c8b2d)
+
+
+**Тест 2:** Студент или организация не найдены
+
+**Ожидаемый результат:**
+
+Статус код: 404 Not Found
+![image](https://github.com/user-attachments/assets/56854b31-00af-4a2e-a568-6ced8cf802eb)
