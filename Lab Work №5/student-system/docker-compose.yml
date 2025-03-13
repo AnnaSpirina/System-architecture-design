@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  organizations-service:
+    build: ./organizations-service
+    ports:
+      - "3001:3001"
+    networks:
+      - student-network
+
+  events-service:
+    build: ./events-service
+    ports:
+      - "3002:3002"
+    networks:
+      - student-network
+
+networks:
+  student-network:
+    driver: bridge
