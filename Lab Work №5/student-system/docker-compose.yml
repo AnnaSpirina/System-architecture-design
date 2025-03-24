@@ -11,6 +11,8 @@ services:
     build: ./events-service
     ports:
       - "3002:3002"
+    depends_on:
+      - organizations-service
     networks:
       - student-network
 

@@ -1,7 +1,12 @@
 const request = require('supertest');
-const app = require('../src/server');
+const app = require('../src/app');
+const server = require('../src/server');
 
 describe('Organizations Service', () => {
+  afterAll((done) => {
+    server.close(done); // Останавливаем сервер после завершения тестов
+  });
+
   it('should create a new organization', async () => {
     const res = await request(app)
       .post('/organizations')
